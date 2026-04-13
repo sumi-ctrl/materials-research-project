@@ -1,5 +1,10 @@
-# materials-research-project
-Using machine learning to identify better semiconductor materials, specifically in comparison to silicon
+# Can We Beat Silicon?
+
+This project involves using machine learning to identify better semiconductor materials, specifically in comparison to silicon which is currently the standard.
+
+## Background
+
+Currently in industry, Silicon is used because it has a band gap of ~1.1 eV, making it ideal for controllable conductivity, as well as switching behaviour (transistors). As such
 
 ## Motivation
 Why this matters (semiconductors, tech, etc.)
