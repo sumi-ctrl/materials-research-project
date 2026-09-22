@@ -21,7 +21,7 @@ Where the data comes from (Materials Project)
 
 ## Methods
 ### Step-by-step Aims
-Firstly, a dataset of materials needs to be located, ideally including information such as chemical composition, structure and band gap (the most important). This can be sourced from places such as the **Materials Project API**, which contains DFT-computed data.
+Firstly, a dataset of materials needs to be located, ideally including information such as chemical composition, structure and band gap (the most important). This can be sourced from places such as the **Materials Project API**, which contains DFT-computed data. My first step was to use this API to generate my own key which I used in my notebooks to access the data through an encoded windows variable.
 
 Next, predictive models need to be built and trained using the materials data. Example models include Linear Regression (baseline) and Random forest / gradient boosting.
 
