@@ -1,0 +1,36 @@
+
+name: materials-research
+
+channels:
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  # Python version used on Windows
+  - python=3.13
+
+  # Scientific computing
+  - numpy
+  - scipy
+  - pandas
+
+  # Data visualisation
+  - matplotlib
+  - plotly
+
+  # Machine learning
+  - scikit-learn
+
+  # Jupyter and VS Code
+  - notebook
+  - ipykernel
+
+  # Materials science
+  - pymatgen
+  - mp-api
+
+  # Utilities
+  - python-dotenv
+  - requests
+  - tqdm
+  - pip
