@@ -44,10 +44,10 @@ All of this will be handled within a Jupyter Notebook
 Key findings (with 1–2 images)
 
 ## Key Insights
-Bullet points of what you discovered
+Bullet points of what I discovered
 
 ## Limitations / Reflection
-Be honest (this is impressive)
+Honest reflection
 
 ## How to Run
 Instructions (pip install, etc.)
