@@ -1,53 +1,60 @@
-# Can We Beat Silicon?
+# Semiconductor Materials Data Exploration
 
-This project involves using machine learning to identify better semiconductor materials, specifically in comparison to silicon which is currently the standard.
+An independent, ongoing project exploring Materials Project data as a foundation for future predictive modelling of semiconductor-relevant properties.
 
-## Background
-### Current Industry Standard + History
+**Current stage:** data retrieval, inspection and visualisation. No predictive models have been trained or evaluated yet.
 
-Currently in industry, Silicon is used because it has a band gap of ~1.1 eV, making it ideal for controllable conductivity, as well as switching behaviour (transistors). As such
+## What is implemented
 
-### Background Theory
-- Knowledge surrounding Band Gaps, relationship between composition and properties
-- DFT data and the influence of quantum mechanics to materials properties
-- Machine Learning - regression models, feature engineering and model evaluation
-- Data analysis and visualisation
+The [Jupyter notebook](notebook/materials-research-project.ipynb) currently:
 
-## Motivation
-Why this matters (semiconductors, tech, etc.)
+- Checks API access using the silicon record `mp-149`.
+- Retrieves materials with a computed band gap between 0.1 and 5.0 eV.
+- Builds a pandas DataFrame containing material identifiers, composition-related descriptors, band gaps, density, stability and energy information.
+- Inspects data types, summary statistics and missing values.
+- Plots the band-gap distribution and band gap against density.
 
-## Data
-Where the data comes from (Materials Project)
+The saved notebook output contains **72,570 retrieved records** and an **11-column DataFrame**. These figures describe that saved run; a new API query may return a different dataset as the database changes.
 
-## Methods
-### Step-by-step Aims
-Firstly, a dataset of materials needs to be located, ideally including information such as chemical composition, structure and band gap (the most important). This can be sourced from places such as the **Materials Project API**, which contains DFT-computed data. My first step was to use this API to generate my own key which I used in my notebooks to access the data through a windows environment variable.
+## Data and tools
 
-Next, predictive models need to be built and trained using the materials data. Example models include Linear Regression (baseline) and Random forest / gradient boosting.
+Data come from the [Materials Project](https://materialsproject.org/) through the `mp-api` Python client.
 
-Finally, the model can be used to identify materials with band gaps in the desired range (~1-2 eV), and compare them to the silicon industry standard.
+The implemented analysis uses Python, pandas, Matplotlib and Jupyter. The environment also includes NumPy, SciPy, pymatgen and scikit-learn for subsequent work; their installation does not mean that every package or modelling method has already been used.
 
-### Implementation
-To start with, a simple stack would include the following :
-- NumPy, pandas and matplotlib / seaborn for numerical operations, data handling and plotting
-- scikit-learn for the machine learning regression models and evaluation metrics
-- pymatgen and Materials Project API to handle materials structures, extract features, and source the DFT data
+## Explore or run the notebook
 
-All of this will be handled within a Jupyter Notebook
+You can view the saved code, tables and plots directly on GitHub without running the API queries.
 
-## Progress Logs
-- Created project file, installed necessary packages (mp-api and pymatgen) which involved some fiddling around with anaconda and it's environments to ensure proper installation.
+To run locally with Conda:
 
+```bash
+git clone https://github.com/sumi-ctrl/materials-research-project.git
+cd materials-research-project
+conda env create -f environment.yml
+conda activate materials-research
+jupyter notebook notebook/materials-research-project.ipynb
+```
 
+Set your Materials Project API key in the local `MP_API_KEY` environment variable before starting Jupyter. The notebook uses `MPRester()` to read the configured key. Keep credentials outside the notebook and repository.
 
-## Results
-Key findings (with 1–2 images)
+Run the analysis cells in order so that the retrieved records and DataFrame exist before inspection and plotting. The saved execution counts are not sequential, so a clean, end-to-end rerun remains a reproducibility task.
 
-## Key Insights
-Bullet points of what I discovered
+Use `environment.yml` for environment setup. The existing `requirements.txt` is a Windows Conda environment export, rather than a pip requirements file.
 
-## Limitations / Reflection
-Honest reflection
+## Interpretation and limitations
 
-## How to Run
-Instructions (pip install, etc.)
+- These are database-derived computational values, not experimental measurements made in this project.
+- The query selects a band-gap range, so the plots do not represent the complete Materials Project database.
+- Exploratory plots describe this selected dataset; they do not establish predictive performance or identify a superior replacement for silicon.
+- Band gap alone is insufficient to assess suitability for a semiconductor application.
+- Data cleaning, feature selection and model evaluation remain future work.
+
+## Planned next steps
+
+1. Review missing values, data provenance and the treatment of theoretical versus experimentally reported structures.
+2. Define a specific prediction task and suitable material descriptors.
+3. Establish a baseline model, then compare appropriate alternatives using a clear train/test separation.
+4. Evaluate errors and limitations before interpreting candidate materials.
+
+The original question, “Can we beat silicon?”, remains a longer-term motivation rather than a result of the current analysis.
