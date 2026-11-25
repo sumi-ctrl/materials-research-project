@@ -3,3 +3,6 @@
 .env
 __pycache__/
 *.pyc
+
+# Local Materials Project cache and provenance
+data/
